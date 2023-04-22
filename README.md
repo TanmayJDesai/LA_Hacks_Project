@@ -6,6 +6,10 @@ Created a grid with a user selected start and endpoint and barriers and using BF
 In order to use the visualizer: 
 
 1. You download the respective librariers. 
+  a. In your IDE's terminal type in: 
+    i).  pip3 install pygame
+    ii). pip3 install numpy
+   
 2. You run the program and let the grid draw in pygame. 
 3. You left and right click at the same time to choose your starting point. 
 4. You left and right click at the same time to choose your ending point. (These can be the same point but you will just get 0 for the shortest path. 

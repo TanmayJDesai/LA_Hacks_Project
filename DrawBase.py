@@ -30,3 +30,35 @@ def check(GRID, Visited, ROW, COLUMN):
     else: 
       check5 = (GRID[ROW][COLUMN] == 0)
       return check1 and check2 and check3 and check4 and check5 and not Visited[ROW][COLUMN]
+    
+def FIND_SHORTEST_PATH(point, PointList, Wall): 
+  start, end = PointList
+  STARTX, STARTY = start
+  ENDX, ENDY = end
+  GRIDSHAPE = np.zeros([GRID_SIZE_X, GRID_SIZE_Y])
+  for i in Wall: 
+    GRIDSHAPE[i] = CONST_INT
+   
+  M, N = GRIDSHAPE.shape
+  
+  #explore 4 neighbors
+  
+  ROW = [-1, 0, 0, 1]
+  COLUMN = [0, -1, 1, 0]
+  #LUDR means left, up, down, right 
+  LUDR = ['L', 'U', 'D', 'R']
+  QUIT = deque()
+  
+  visited = {}
+  visited[(STARTX, STARTY)] = True
+  COMBINE = ""
+  QUIT.append((STARTX, STARTY, 0, COMBINE))
+  DISTANCE = sys.maxsize
+  
+  while QUIT: 
+    #Create quit feature now
+  
+  
+  
+  
+  

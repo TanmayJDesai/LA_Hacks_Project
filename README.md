@@ -9,6 +9,8 @@ In order to use the visualizer:
   a. In your IDE's terminal type in: 
     i).  pip3 install pygame
     ii). pip3 install numpy
+    iii). pip3 install pygcurse
+    
    
 2. You run the program and let the grid draw in pygame. 
 3. You left and right click at the same time to choose your starting point. 

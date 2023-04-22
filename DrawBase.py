@@ -20,12 +20,28 @@ def create_grid(Row, Column):
             GridPattern[j][i] = '|'
     #Return this pattern to be drawn.
     return GridPattern
-
+"""
 def Draw_The_Grid(Game, Final_Grid):
     #Just use a nested for loop to create the grid background in the pygame.
     for i in range(Final_Grid.shape[0]):
         for j in range(Final_Grid.shape[1]):
             Game.write(Final_Grid[i][j], x=i, y=j)
+"""
+
+def Draw_The_Grid(grid):
+    """Draws the Sudoku grid"""
+    for i in range(len(grid)):
+        if i % 3 == 0:
+            print("+-------+-------+-------+")
+        for j in range(len(grid[0])):
+            if j % 3 == 0:
+                print("| ", end="")
+            if j == 8:
+                print(grid[i][j], "|")
+            else:
+                print(str(grid[i][j]) + " ", end="")
+    print("+-------+-------+-------+")
+    
 
 def Final_Grid():
     grid_rows, grid_cols = 49, 49  # Updated to smaller grid size

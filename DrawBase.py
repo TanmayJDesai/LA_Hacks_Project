@@ -80,7 +80,22 @@ def FIND_SHORTEST_PATH(point, PointList, Wall):
         
     QUIT.append((NEW[0], NEW[CONST_BASE], DIST + CONST_BASE, COMBINE + LUDR[a])) 
   
+  point.write('✓', ENDX, ENDY)
   
+  if DISTANCE != sys.maxsize: 
+    #find path
+    start_x, start_y = PointList[0]
+        for i in range(len(COMBINE)):
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    return
+            index = LUDR.index(COMBINE[i])
+            start_x, start_y = start_x + ROW[index], start_y + COLUMN[index]
+            point.write('+', start_x, start_y, fgcolor='yellow')
+        point.write('✓', ENDX, ENDY)
+        point.write(f"We found a path using BFS! It is {DISTANCE} units", CONST_INT, CONST_INT)
+    else:
+        point.write("No path exists because of the barriers! Please try again", CONST_INT, CONST_INT)
   
   
   

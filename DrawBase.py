@@ -4,8 +4,8 @@ from collections import deque
 import pygame
 
 CONST_BASE = 1
-CONST_GRID_SIZE_X = 50
-CONST_GRID_SIZE_X = 50
+GRID_SIZE_X = 50
+GRID_SIZE_Y = 50
 
 def GridCheck(Grid, Row, Column): 
   if (Grid[Row][Column] == 0): 
@@ -57,7 +57,28 @@ def FIND_SHORTEST_PATH(point, PointList, Wall):
   
   while QUIT: 
     #Create quit feature now
-  
+    for event in pygame.event.get(): 
+      if event.type == pygame.QUIT: 
+        return
+    
+    (START_X, START_Y, DIST, COMBINE) = QUIT.popleft()
+    FIRST_CONDITION = START_X == ENDX
+    SECOND_CONDITION = START_Y == ENDY
+    FINAL_CONDITION = FIRST_CONDITION AND SECOND_CONDITION
+    
+    if FINAL_CONDITION: 
+      Distance = DIST
+      break
+    
+    for a in range(4): 
+      if check(GRIDSHAPE, visited, START_X + ROW[a], START_Y + COLUMN[a]): 
+        NEW = (START_X + ROW[a], START_Y + COLUMN[a])
+        visited[NEW] = True
+        
+        #NOTE: Uncomment this chunk of code if you would like to mark the path of the tester.
+        #point.write('.', NEW[0], NEW[CONST_INT], fgcolor='blue')
+        
+    QUIT.append((NEW[0], NEW[CONST_BASE], DIST + CONST_BASE, COMBINE + LUDR[a])) 
   
   
   

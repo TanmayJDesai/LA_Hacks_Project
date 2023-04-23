@@ -4,22 +4,29 @@ from pygame.locals import *
 import sys
 import numpy as np
 from bfs import FIND_SHORTEST_PATH
+
+UP = pygame.MOUSEBUTTONUP
+DOWN = pygame.MOUSEBUTTONDOWN
+MOTION = pygame.MOUSEMOTION
+
 CONST_INT = 2
 
 def create_grid(Row, Column):
-    #Create a pygame app of grids
+    # Create a pygame app of grids
     GridPattern = np.empty((Row, Column), dtype=str)
-    #Make all the grids empty
+    # Make all the grids empty
     GridPattern[:] = " "
-    #Create certain sized (as I specify)grids using the - and | characters
+    # Create certain sized (as I specify)grids using the - and | characters
     for i in range(0, Row, 50):
         for j in range(Column):
             GridPattern[i][j] = '-'
     for i in range(0, Column, 50):
         for j in range(Column):
             GridPattern[j][i] = '|'
-    #Return this pattern to be drawn.
+    # Return this pattern to be drawn.
     return GridPattern
+
+
 """
 def Draw_The_Grid(Game, Final_Grid):
     #Just use a nested for loop to create the grid background in the pygame.
@@ -27,6 +34,7 @@ def Draw_The_Grid(Game, Final_Grid):
         for j in range(Final_Grid.shape[1]):
             Game.write(Final_Grid[i][j], x=i, y=j)
 """
+
 
 def Draw_The_Grid(grid):
     """Draws the Sudoku grid"""
@@ -41,7 +49,7 @@ def Draw_The_Grid(grid):
             else:
                 print(str(grid[i][j]) + " ", end="")
     print("+-------+-------+-------+")
-    
+
 
 def Final_Grid():
     grid_rows, grid_cols = 49, 49  # Updated to smaller grid size
@@ -53,7 +61,7 @@ def Final_Grid():
         for j in range(grid_cols):
             grid[i][j] = '-'
 
-    #Draw the vertical lines
+    # Draw the vertical lines
     for i in range(0, grid_cols, 5):  # Updated to smaller grid size
         for j in range(grid_rows):
             grid[j][i] = '|'
@@ -86,17 +94,18 @@ def Final_Grid():
             if event.type == QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE):
                 pygame.quit()
                 sys.exit()
-            if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.type == DOWN:
                 drag = True
-            elif event.type == pygame.MOUSEBUTTONUP:
+            elif event.type == UP:
                 drag = False
-            elif event.type == pygame.MOUSEMOTION:
+            elif event.type == MOTION:
                 if drag:
                     coordinate = point.getcoordinatesatpixel(event.pos)
                     point.write('>', *coordinate)
                     walls.add(coordinate)
             elif event.type == pygame.KEYDOWN:
-                    FIND_SHORTEST_PATH(point, PointList, walls)
+                FIND_SHORTEST_PATH(point, PointList, walls)
+
 
 if __name__ == "__main__":
     Final_Grid()

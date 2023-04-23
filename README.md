@@ -1,6 +1,8 @@
 # LA_Hacks_Project
 Shortest Path Finder for College Campuses for new students. 
 
+We did not create a youtube video. 
+
 Created a grid with a user selected start and endpoint and barriers and using BFS found the shortest path between two points, showed the path and outputted the distance at the top.
 
 In order to use the visualizer: 

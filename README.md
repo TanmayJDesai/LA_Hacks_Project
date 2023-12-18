@@ -37,6 +37,7 @@ pip3 install pygcurse
 ## Code Structure
 # BFS.py
 This file contains the breadth-first search (BFS) algorithm for finding the shortest path. It uses a grid-based approach and pygame for visualization. The FIND_SHORTEST_PATH function takes care of exploring the grid to find the shortest path between two points.
+--
 
 # DrawBase.py
 This file handles the drawing of the grid using pygcurse and provides the user interface for selecting points and creating barriers. The Final_Grid function initializes the grid and sets up the interface, while the Draw_The_Grid function is responsible for drawing the grid.
